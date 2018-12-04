@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>War Game</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" media="screen" href="css/styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Cuprum"
+      rel="stylesheet"
+    />
+    <link
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+
+    <link
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      rel="stylesheet"
+      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+      crossorigin="anonymous"
+    />
+    
+  </head>
+  <body>
+
+      <section id="war-game-section" class=" text-dark mt-5 mb-5">
+          <div class="container pt-5" id="war-game-preview-container">
+            <div class="row">
+              <div class="col">
+                <div id="war-game-preview-box">
+                  <h2>War Game!</h2>
+                  <hr />
+                  <button class="btn-war-preview" id="btn-new">New Game!</button>
+                  <button class="btn-war-preview" id="btn-rules">Rules</button>
+                  <div id="war-game-rules">
+                    <h3>The Goal</h3>
+                    <p>The goal is to be the first player to win all 52 cards.</p>
+                    <hr />
+                    <h3>The Deal</h3>
+                    <p>
+                      The deck is divided evenly, with each player receiving 26
+                      cards, dealt one at a time, face down. Anyone may deal first.
+                      Each player places his stack of cards face down, in front of
+                      him.
+                    </p>
+                    <hr />
+                    <h3>The Play</h3>
+                    <p>
+                      Each player turns up a card at the same time and the player
+                      with the higher card takes both cards and puts them, face
+                      down, on the bottom of his stack. If the cards are the same
+                      rank, it is War. Each player turns up one card face down and
+                      one card face up. The player with the higher cards takes both
+                      piles (six cards). If the turned-up cards are again the same
+                      rank, each player places another card face down and turns
+                      another card face up. The player with the higher card takes
+                      all 10 cards, and so on.
+                    </p>
+                  </div>
+                  <button class="btn-war-preview" id="btn-info">Info</button>
+                  <div id="war-game-info">
+                    <h3>Traditional War Card Game</h3>
+                    <h3>Made with:</h3>
+                    <h3>HTML</h3>
+                    <h2>CSS</h2>
+                    <h2>Javascript</h2>
+                  </div>
+                </div>
+            </section>
+
+
+
+
+
+
+    <section id="war-game-board-section">
+      <div class="container" id="war-main-container">
+        <div class="row" id="cpu-Panel-Row">
+          <div class="three-col-panel-grid" id="cpu-Panel">
+            <div
+              class="game-panel-grid-col war-deck-count-box"
+              id="cpu-deck-count-box"
+            >
+              <h3 class="round-title">Card Count</h3>
+              <div class="war-round-flex-cont">
+                <h1 id="cpuCardCount">26</h1>
+              </div>
+            </div>
+            <div class="game-panel-grid-col war-btn-box" id="cpu-btn-box">
+              <h3 class="round-title">Cpu Panel</h3>
+            </div>
+            <div class="game-panel-grid-col war-deck-box" id="cpu-deck-box">
+              <img id="cpuDeckImg" src="images/gray_back.png" alt="" />
+            </div>
+          </div>
+        </div>
+        <div class="row" id="game-Panel-Row">
+          <div class="three-col-panel-grid" id="main-game-panel">
+            <div class="game-panel-grid-col" id="player_active_card-box">
+              <img
+                id="playerCurrentCardImg"
+                src="images/gray_back.png"
+                alt=""
+              />
+            </div>
+            <div class="game-panel-grid-col" id="main-game-middle-box">
+              <h1 class="round-title" id="roundWinnerText">Round Winner!</h1>
+            </div>
+            <div class="game-panel-grid-col" id="cpu_active_card_box">
+              <img id="cpuCurrentCardImg" src="images/gray_back.png" alt="" />
+            </div>
+          </div>
+        </div>
+        <div class="row" id="player-Panel-Row">
+          <div class="three-col-panel-grid" id="player-Panel">
+            <div class="war-deck-box" id="player-deck-box">
+              <img id="playerDeckImg" src="images/gray_back.png" alt="" />
+            </div>
+            <div class="war-btn-box" id="player-btn-box">
+              <h3 class="round-title">Player Panel</h3>
+              <button class="war-round-info-btn" id="player-show-btn">
+                Show Card
+              </button>
+            </div>
+            <div class="war-deck-count-box" id="player-deck-count-box">
+              <h4 class="round-title">Card Count</h4>
+              <div class="war-round-flex-cont">
+                <h1 id="playerCardCount">26</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- War Game War Grid -->
+    <div class="container" id="war-war-container">
+      <div class="row" id="war-cpu-panel-row">
+        <div class="war-round-grid " id="cpu-round-panel">
+          <div class="war-round-cont " id="cpu-round-cont-1">
+            <h4 class="round-title" id="war-cpu-round-1-history-count">
+              Round Number
+            </h4>
+            <div class="war-round-flex-cont">
+              <img src="images/gray_back.png" alt="" />
+              <img
+                src="images/gray_back.png"
+                alt=""
+                id="war-cpu-round-1-card-img"
+              />
+            </div>
+          </div>
+          <div class="war-round-cont" id="cpu-round-cont-2">
+            <h4 class="round-title" id="war-cpu-round-2-history-count">
+              Round Number
+            </h4>
+            <div class="war-round-flex-cont">
+              <img src="images/gray_back.png" alt="" />
+              <img
+                src="images/gray_back.png"
+                alt=""
+                id="war-cpu-round-2-card-img"
+              />
+            </div>
+          </div>
+          <div class="war-round-cont" id="cpu-round-cont-3">
+            <h4 class="round-title" id="war-cpu-round-3-history-count">
+              Round Number
+            </h4>
+            <div class="war-round-flex-cont">
+              <img src="images/gray_back.png" alt="" />
+              <img
+                src="images/gray_back.png"
+                alt=""
+                id="war-cpu-round-3-card-img"
+              />
+            </div>
+          </div>
+          <div class="war-round-cont" id="cpu-round-cont-4">
+            <h4 class="round-title" id="war-cpu-round-4-history-count">
+              Round Number
+            </h4>
+            <div class="war-round-flex-cont">
+              <img src="images/gray_back.png" alt="" />
+              <img
+                src="images/gray_back.png"
+                alt=""
+                id="war-cpu-round-4-card-img"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row" id="war-round-panel-row">
+        <div class="" id="war-round-info-panel-mobile">
+          <div class="round-title war-main-round-number-mobile">Round #</div>
+
+          <button
+            class="war-round-info-btn"
+            id="war-show-round-player-btn-mobile"
+          >
+            Show Card
+          </button>
+          <button
+            class="war-round-info-btn"
+            id="war-end-round-player-btn-mobile"
+          >
+            End Round
+          </button>
+
+          <div class="round-title war-round-winner-text-mobile">
+            Round Winner
+          </div>
+        </div>
+        <div class="war-round-middle-grid" id="war-round-middle-grid">
+          <div class="war-round-middle-col" id="war-round-player-panel">
+            <div class="war-round-flex-cont">
+              <img
+                src="images/gray_back.png"
+                alt=""
+                id="player-start-war-card"
+                class="flex-img"
+              />
+            </div>
+
+            <div class="war-round-flex-cont" id="war-round-player-active-flex">
+              <img src="images/gray_back.png" alt="" class="flex-img" />
+              <img
+                src="images/gray_back.png"
+                alt=""
+                id="player-active-war-card"
+                class="flex-img"
+              />
+            </div>
+          </div>
+          <div class="war-round-middle-col" id="war-round-info-panel">
+            <div class="round-title war-main-round-number" id="round-number">
+              Round #
+            </div>
+            <div class="round-title war-round-winner-text">Round Winner</div>
+            <button class="war-round-info-btn" id="war-show-round-player-btn">
+              Show Card
+            </button>
+            <button class="war-round-info-btn" id="war-end-round-player-btn">
+              End Round
+            </button>
+          </div>
+
+          <div class="war-round-middle-col" id="war-round-cpu-panel">
+            <div class="war-round-flex-cont">
+              <img
+                src="images/gray_back.png"
+                alt=""
+                class="flex-img"
+                id="cpu-start-war-card"
+              />
+            </div>
+
+            <div class="war-round-flex-cont" id="war-round-cpu-active-flex">
+              <img src="images/gray_back.png" alt="" class="flex-img" />
+              <img
+                src="images/gray_back.png"
+                alt=""
+                class="flex-img"
+                id="cpu-active-war-card"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row" id="war-player-panel-row">
+        <div class="war-round-grid" id="player-round-panel">
+          <div class="war-round-cont" id="player-round-cont-1">
+            <h4 class="round-title" id="war-player-round-1-history-count">
+              Round Number
+            </h4>
+            <div class="war-round-flex-cont">
+              <img src="images/gray_back.png" alt="" />
+              <img
+                id="war-player-round-1-card-img"
+                src="images/gray_back.png"
+                alt=""
+              />
+            </div>
+          </div>
+          <div class="war-round-cont" id="player-round-cont-2">
+            <h4 class="round-title" id="war-player-round-2-history-count">
+              Round Number
+            </h4>
+            <div class="war-round-flex-cont">
+              <img src="images/gray_back.png" alt="" />
+              <img
+                src="images/gray_back.png"
+                alt=""
+                id="war-player-round-2-card-img"
+              />
+            </div>
+          </div>
+          <div class="war-round-cont" id="player-round-cont-3">
+            <h4 class="round-title" id="war-player-round-3-history-count">
+              Round Number
+            </h4>
+            <div class="war-round-flex-cont">
+              <img src="images/gray_back.png" alt="" />
+              <img
+                src="images/gray_back.png"
+                alt=""
+                id="war-player-round-3-card-img"
+              />
+            </div>
+          </div>
+          <div class="war-round-cont" id="player-round-cont-4">
+            <h4 class="round-title" id="war-player-round-4-history-count">
+              Round Number
+            </h4>
+            <div class="war-round-flex-cont">
+              <img src="images/gray_back.png" alt="" />
+              <img
+                src="images/gray_back.png"
+                alt=""
+                id="war-player-round-4-card-img"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
+      integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"
+      integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1"
+      crossorigin="anonymous"
+    ></script>
+    
+    <script src="war_game.js"></script>
+  </body>
+</html>
